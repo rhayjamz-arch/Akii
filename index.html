@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Lucky Boy 🎂</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #1976ad,
+            transparent 45%
+        ),
+        linear-gradient(
+            160deg,
+            #03152b,
+            #08436d,
+            #061d38
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    padding: 35px 15px 20px;
+}
+
+.crown {
+    font-size: 45px;
+
+    animation:
+        float 2s ease-in-out infinite;
+}
+
+h1 {
+    margin: 8px 0;
+
+    color: #ffd84d;
+
+    font-size: 32px;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.6);
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: bold;
+
+    color: white;
+}
+
+.instruction {
+    margin-top: 12px;
+
+    font-size: 16px;
+
+    color: #dceeff;
+}
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+
+/* =========================
+   GIFTS CONTAINER
+========================= */
+
+.gifts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 165px);
+
+    justify-content: center;
+
+    gap: 100px 25px;
+
+    padding:
+        45px 15px
+        100px;
+}
+
+
+/* =========================
+   GIFT BOX
+========================= */
+
+.gift-box {
+
+    width: 165px;
+    height: 190px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    perspective: 700px;
+
+    transition: .3s;
+}
+
+.gift-box:active {
+    transform: scale(.96);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    position: absolute;
+
+    width: 310px;
+
+    min-height: 100px;
+
+    left: 50%;
+    bottom: 55px;
+
+    transform:
+        translateX(-50%)
+        translateY(35px);
+
+    padding: 20px 17px;
+
+    background: #fffdf5;
+
+    color: #17324d;
+
+    border-radius: 16px;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    z-index: 2;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.5);
+
+    opacity: 0;
+
+    transition:
+        .8s ease;
+}
+
+
+/* OPEN MESSAGE */
+
+.gift-box.open .message {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(-25px);
+
+    z-index: 20;
+}
+
+
+/* =========================
+   BOX BODY
+========================= */
+
+.box-body {
+
+    position: absolute;
+
+    width: 150px;
+    height: 105px;
+
+    left: 7px;
+    bottom: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #2187c4,
+            #07558c
+        );
+
+    border-radius:
+        4px 4px 12px 12px;
+
+    box-shadow:
+        inset -8px -8px 15px
+        rgba(0,0,0,.2),
+
+        0 12px 20px
+        rgba(0,0,0,.4);
+
+    z-index: 3;
+}
+
+
+/* =========================
+   VERTICAL RIBBON
+========================= */
+
+.box-body::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 26px;
+    height: 100%;
+
+    left: 62px;
+
+    background: #ffd84d;
+}
+
+
+/* =========================
+   HORIZONTAL RIBBON
+========================= */
+
+.box-body::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 18px;
+
+    left: 0;
+    top: 40px;
+
+    background: #ffd84d;
+}
+
+
+/* =========================
+   GIFT LID
+========================= */
+
+.lid {
+
+    position: absolute;
+
+    width: 165px;
+    height: 40px;
+
+    left: 0;
+    top: 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #2da0df,
+            #0b659d
+        );
+
+    border-radius: 7px;
+
+    z-index: 5;
+
+    box-shadow:
+        0 6px 13px
+        rgba(0,0,0,.4);
+
+    transition:
+        transform
+        .8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================
+   LID RIBBON
+========================= */
+
+.lid::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 26px;
+    height: 40px;
+
+    left: 69px;
+
+    background: #ffd84d;
+}
+
+
+/* =========================
+   BOW
+========================= */
+
+.bow {
+
+    position: absolute;
+
+    left: 50%;
+    top: -21px;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 38px;
+
+    z-index: 8;
+
+    transition: .8s ease;
+}
+
+
+/* =========================
+   OPEN LID
+========================= */
+
+.gift-box.open .lid {
+
+    transform:
+        translateY(-70px)
+        rotate(-8deg);
+}
+
+
+/* =========================
+   OPEN BOW
+========================= */
+
+.gift-box.open .bow {
+
+    transform:
+        translateX(-50%)
+        translateY(-70px)
+        rotate(-8deg);
+}
+
+
+/* =========================
+   GIFT LABEL
+========================= */
+
+.number {
+
+    position: absolute;
+
+    bottom: -35px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: #ffd84d;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   CENTER LAST BOX
+========================= */
+
+.gift-box:last-child {
+
+    grid-column:
+        1 / 3;
+}
+
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloon {
+
+    position: fixed;
+
+    bottom: -80px;
+
+    font-size: 48px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation:
+        balloonUp
+        4s
+        ease-out
+        forwards;
+}
+
+@keyframes balloonUp {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+        opacity: 1;
+    }
+
+    50% {
+
+        transform:
+            translateY(-55vh)
+            rotate(8deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-120vh)
+            rotate(-8deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    padding: 25px 15px 35px;
+
+    font-size: 16px;
+
+    color: #dceeff;
+}
+
+footer strong {
+
+    color: #ffd84d;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .gifts {
+
+        grid-template-columns:
+            repeat(2, 155px);
+
+        gap: 105px 15px;
+    }
+
+    .gift-box {
+
+        width: 155px;
+    }
+
+    .message {
+
+        width: 300px;
+
+        font-size: 15px;
+
+        line-height: 1.45;
+    }
+}
+
+
+/* =========================
+   SMALL PHONE
+========================= */
+
+@media (max-width: 360px) {
+
+    .gifts {
+
+        grid-template-columns:
+            repeat(2, 145px);
+
+        gap: 100px 8px;
+    }
+
+    .gift-box {
+
+        width: 145px;
+    }
+
+    .message {
+
+        width: 285px;
+
+        font-size: 14px;
+    }
+
+    h1 {
+
+        font-size: 25px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="crown">
+        👑
+    </div>
+
+    <h1>
+        HAPPY BIRTHDAY!
+    </h1>
+
+    <div class="subtitle">
+        🎂 LUCKY BOY 🎂
+    </div>
+
+    <div class="instruction">
+        Open your gifts! 🎁✨
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     FIVE GIFT BOXES
+========================= -->
+
+<div class="gifts">
+
+
+    <!-- GIFT 1 -->
+
+    <div
+        class="gift-box"
+        onclick="openGift(this,1)"
+    >
+
+        <div class="message">
+
+            🤣
+
+            <br><br>
+
+            <b>
+                YOU'RE LOSE!
+            </b>
+
+        </div>
+
+
+        <div class="lid">
+
+            <div class="bow">
+                🎀
+            </div>
+
+        </div>
+
+
+        <div class="box-body"></div>
+
+
+        <div class="number">
+            🎁 GIFT 1
+        </div>
+
+    </div>
+
+
+
+    <!-- GIFT 2 -->
+
+    <div
+        class="gift-box"
+        onclick="openGift(this,2)"
+    >
+
+        <div class="message">
+
+            🎂🎉
+
+            <br><br>
+
+            <b>
+                HAPPY BIRTHDAY
+                <br>
+                LUCKY BOY!
+            </b>
+
+            <br><br>
+
+            🎈🎈🎈
+
+        </div>
+
+
+        <div class="lid">
+
+            <div class="bow">
+                🎀
+            </div>
+
+        </div>
+
+
+        <div class="box-body"></div>
+
+
+        <div class="number">
+            🎁 GIFT 2
+        </div>
+
+    </div>
+
+
+
+    <!-- GIFT 3 -->
+
+    <div
+        class="gift-box"
+        onclick="openGift(this,3)"
+    >
+
+        <div class="message">
+
+            💌
+
+            <br><br>
+
+            <b>
+                Happy happy birthday
+                LUCKY BOY!
+            </b>
+
+            <br><br>
+
+            Matugas in O pagbago nakaw ahh,
+            malaas nakaw, bukun nakaw
+            mag sugat sugat naman ahh 😂
+
+            <br><br>
+
+            Just enjoy your day
+            LUCKY BOY! 🎉
+
+            <br><br>
+
+            Mwuapss 😆
+
+            <br><br>
+
+            Love love always,
+            sin Tita 🫶
+
+        </div>
+
+
+        <div class="lid">
+
+            <div class="bow">
+                🎀
+            </div>
+
+        </div>
+
+
+        <div class="box-body"></div>
+
+
+        <div class="number">
+            🎁 GIFT 3
+        </div>
+
+    </div>
+
+
+
+    <!-- GIFT 4 -->
+
+    <div
+        class="gift-box"
+        onclick="openGift(this,4)"
+    >
+
+        <div class="message">
+
+            🤣🤣🤣
+
+            <br><br>
+
+            <b>
+                OPSSS!
+                <br>
+                YOU'RE PANGET!
+            </b>
+
+        </div>
+
+
+        <div class="lid">
+
+            <div class="bow">
+                🎀
+            </div>
+
+        </div>
+
+
+        <div class="box-body"></div>
+
+
+        <div class="number">
+            🎁 GIFT 4
+        </div>
+
+    </div>
+
+
+
+    <!-- GIFT 5 -->
+
+    <div
+        class="gift-box"
+        onclick="openGift(this,5)"
+    >
+
+        <div class="message">
+
+            🎉💙
+
+            <br><br>
+
+            <b>
+                ENJOY YOUR DAY
+                <br>
+                LUCKY!
+            </b>
+
+            <br><br>
+
+            Malaas nakaw 😆
+
+        </div>
+
+
+        <div class="lid">
+
+            <div class="bow">
+                🎀
+            </div>
+
+        </div>
+
+
+        <div class="box-body"></div>
+
+
+        <div class="number">
+            🎁 GIFT 5
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    Made by
+    <strong>
+        Tita Rhay
+    </strong>
+
+    💙✨
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   OPEN GIFT
+========================= */
+
+function openGift(box, number) {
+
+    box.classList.toggle("open");
+
+
+    /*
+       BALLOONS ONLY
+       WHEN GIFT 2 IS OPENED
+    */
+
+    if (
+        number === 2 &&
+        box.classList.contains("open")
+    ) {
+
+        createBalloons();
+
+    }
+
+}
+
+
+
+/* =========================
+   CREATE BALLOONS
+========================= */
+
+function createBalloons() {
+
+    const balloons = [
+        "🎈",
+        "🎈",
+        "🎈",
+        "🎈",
+        "🎈",
+        "🎈",
+        "🎈",
+        "🎈"
+    ];
+
+
+    balloons.forEach(
+        function(emoji,index) {
+
+            const balloon =
+                document.createElement("div");
+
+
+            balloon.className =
+                "balloon";
+
+
+            balloon.innerHTML =
+                emoji;
+
+
+            balloon.style.left =
+                (
+                    3 +
+                    Math.random() * 94
+                ) + "%";
+
+
+            balloon.style.animationDelay =
+                (
+                    index * .15
+                ) + "s";
+
+
+            document.body.appendChild(
+                balloon
+            );
+
+
+            setTimeout(
+                function() {
+
+                    balloon.remove();
+
+                },
+                4500
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
